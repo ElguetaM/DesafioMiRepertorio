@@ -8,29 +8,26 @@ const nuevaCancion = async (data) => {
     const res = await pool.query(query);
     return res.rows;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 const prepararCancion = async (req, res) => {
   try {
-    const query = {
-      text: "SELECT * FROM canciones",
-    };
-    const res = await pool.query(query);
+    const res = await pool.query("SELECT * FROM canciones");
     return res.rows;
   } catch (error) {
     console.log(error.message);
   }
 };
 
-const editarCancion = async (datos) => {
+const editarCancion = async (data) => {
   try {
     const query = {
-      text: "UPDATE canciones SET titulo = $1, artista = $2, tono = $3 WHERE id = `${id}` RETURNING *",
-      values: datos,
+      text: `UPDATE canciones SET titulo = $1, artista = $2, tono = $3 WHERE id = ${id} RETURNING *`,
+      values: Object.values(data),
     };
     const res = await pool.query(query);
-    return res.rows;
+    return res;
   } catch (error) {
     console.log(error.message);
   }

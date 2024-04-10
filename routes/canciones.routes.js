@@ -21,13 +21,14 @@ router.post("/cancion", async (req, res) => {
 });
 
 router.get("/canciones", async (req, res) => {
-  const data = await prepararCancion();
-  res.json(data);
+  const canciones = await prepararCancion();
+  res.json(canciones);
 });
 
 router.put("/cancion", async (req, res) => {
-  const data = await editarCancion(data);
-  res.json(data);
+  const { id } = req.query;
+  const canciones = await editarCancion(id);
+  res.json(canciones);
 });
 
 router.delete("/cancion", async (req, res) => {
