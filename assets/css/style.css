@@ -1,5 +1,27 @@
-  body {
-    text-align: center;
-    background: #283593;
-    color: white;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  background: #283593;
+  color: white;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
+}
+
+.errorTitle {
+  font-size: 100px;
+  margin: 80px 0px;
+}
+
+.errorTitle2 {
+  font-size: 45px;
+  margin: 20px 0px;
+}
+
+.errorText {
+  font-size: 40px;
+  margin: 20px 0px;
+}

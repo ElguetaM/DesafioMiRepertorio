@@ -26,7 +26,6 @@ router.get("/canciones", async (req, res) => {
 });
 
 router.put("/cancion/:id", async (req, res) => {
-  //const { id } = req.params;
   const data = Object.values(req.body);
   const canciones = await editarCancion(data);
   res.json(canciones);
