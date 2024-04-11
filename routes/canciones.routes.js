@@ -25,9 +25,10 @@ router.get("/canciones", async (req, res) => {
   res.json(canciones);
 });
 
-router.put("/cancion", async (req, res) => {
-  const { id } = req.query;
-  const canciones = await editarCancion(id);
+router.put("/cancion/:id", async (req, res) => {
+  //const { id } = req.params;
+  const data = Object.values(req.body);
+  const canciones = await editarCancion(data);
   res.json(canciones);
 });
 
